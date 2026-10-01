@@ -1,52 +1,56 @@
 /**
- * HI-TECH Mobile Hub — CSS Variables & Design Tokens
+ * HI-TECH Mobile Hub — Brand Color System & CSS Variables
  * 
- * Core Brand Identity: BLACK + YELLOW/GOLD + WHITE
- * Subtle Accents: Electric Cyan (#00D4FF), WhatsApp Emerald (#25D366)
+ * Strict Brand Identity:
+ * Black: #050505
+ * Dark surface: #101010
+ * Secondary surface: #171717
+ * Primary accent: #FFD400
+ * Gold: #FFB800
+ * White: #FFFFFF
+ * Muted text: #A1A1A1
+ * Subtle technology accent: #00C2FF
  */
 
 :root {
-  /* Brand Palette */
-  --color-bg: #070709;
-  --color-bg-secondary: #0D0E12;
-  --color-surface: #13141A;
-  --color-surface-hover: #1A1C24;
-  --color-surface-card: #15161C;
-  --color-surface-elevated: #1F212A;
+  /* Core Brand Colors */
+  --color-bg: #050505;
+  --color-surface: #101010;
+  --color-surface-secondary: #171717;
+  --color-surface-card: #141416;
+  --color-surface-elevated: #1F1F24;
 
-  /* Yellow / Gold Accents */
+  /* Accents */
   --color-primary: #FFD400;
   --color-primary-light: #FFE033;
   --color-primary-dark: #E5A800;
-  --color-secondary: #FFB800;
-  --color-gold-glow: rgba(255, 212, 0, 0.18);
+  --color-gold: #FFB800;
+  --color-accent-tech: #00C2FF;
+  --color-tech-glow: rgba(0, 194, 255, 0.16);
+  --color-gold-glow: rgba(255, 212, 0, 0.20);
   --color-gold-border: rgba(255, 212, 0, 0.35);
 
-  /* Contrast Whites & Neutrals */
+  /* Typography Colors */
+  --color-white: #FFFFFF;
   --color-text: #FFFFFF;
   --color-text-secondary: #E5E7EB;
-  --color-muted: #9CA3AF;
+  --color-muted: #A1A1A1;
   --color-muted-dark: #6B7280;
-  
-  /* Borders */
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.18);
 
-  /* Functional Accents */
-  --color-cyan: #00D4FF;
-  --color-cyan-glow: rgba(0, 212, 255, 0.16);
+  /* Functional / Border Colors */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.20);
   --color-whatsapp: #25D366;
   --color-whatsapp-dark: #1EBE5D;
-  --color-whatsapp-glow: rgba(37, 211, 102, 0.25);
-  --color-call: #3B82F6;
+  --color-whatsapp-glow: rgba(37, 211, 102, 0.35);
   --color-danger: #EF4444;
   --color-success: #10B981;
 
-  /* Typography */
+  /* Typography Families */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-display: 'Poppins', var(--font-sans);
 
-  /* Fluid Font Sizes using clamp() */
+  /* Fluid Responsive Typography */
   --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8125rem);
   --text-sm: clamp(0.8125rem, 0.77rem + 0.25vw, 0.875rem);
   --text-base: clamp(0.9375rem, 0.88rem + 0.3vw, 1.0625rem);
@@ -54,7 +58,7 @@
   --text-xl: clamp(1.25rem, 1.15rem + 0.6vw, 1.5rem);
   --text-2xl: clamp(1.5rem, 1.35rem + 1vw, 2rem);
   --text-3xl: clamp(1.875rem, 1.6rem + 1.5vw, 2.75rem);
-  --text-4xl: clamp(2.25rem, 1.85rem + 2.2vw, 3.75rem);
+  --text-4xl: clamp(2.25rem, 1.85rem + 2.2vw, 3.5rem);
 
   /* Spacing Scale */
   --space-1: 0.25rem;
@@ -70,13 +74,13 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
-  /* Layout Containers */
+  /* Container & Dimensions */
   --container-max: 1240px;
   --container-padding: clamp(1rem, 4vw, 2rem);
-  --header-height: 72px;
-  --bottom-bar-height: 64px;
+  --header-height: 70px;
+  --bottom-bar-height: 60px;
 
-  /* Border Radii */
+  /* Radii */
   --radius-xs: 6px;
   --radius-sm: 10px;
   --radius-md: 16px;
@@ -85,9 +89,9 @@
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.65);
-  --shadow-gold: 0 8px 30px rgba(255, 212, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.75);
+  --shadow-gold: 0 8px 30px rgba(255, 212, 0, 0.22);
   --shadow-whatsapp: 0 8px 25px rgba(37, 211, 102, 0.35);
 
   /* Transitions */

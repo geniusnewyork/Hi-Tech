@@ -1,79 +1,94 @@
 /**
- * HI-TECH Mobile Hub — WhatsApp Link Generator
+ * HI-TECH Mobile Hub — Smart WhatsApp System
  * 
- * Provides robust URL encoding and formatting for WhatsApp click-to-chat links.
+ * Centralized WhatsApp click-to-chat utility supporting contextual messages,
+ * safe URL encoding, and direct opening.
  */
 
-const WhatsAppHelper = (function() {
+const WhatsAppSystem = (function() {
   /**
-   * Generates a direct WhatsApp URL with URL-encoded message text
-   * @param {string} message - Message text to pre-fill in the customer's chat
-   * @param {string} [phone] - Optional phone override (defaults to SHOP_CONFIG.whatsapp)
-   * @returns {string} Fully formatted https://wa.me URL
+   * Generates a fully qualified https://wa.me URL
+   * @param {string} message - Message text
+   * @param {string} [phone] - Optional phone override
+   * @returns {string} Encoded WhatsApp URL
    */
   function createUrl(message, phone) {
     const targetPhone = phone || (typeof SHOP_CONFIG !== "undefined" ? SHOP_CONFIG.whatsapp : "918607777717");
     const cleanPhone = String(targetPhone).replace(/[^0-9]/g, "");
-    const msg = (message && typeof message === "string") ? message.trim() : (SHOP_CONFIG ? SHOP_CONFIG.whatsappDefaultMsg : "Hi HI-TECH Mobile Hub");
+    const msg = (message && typeof message === "string") 
+      ? message.trim() 
+      : (SHOP_CONFIG && SHOP_CONFIG.messages ? SHOP_CONFIG.messages.general : "Hello HI-TECH Mobile Hub");
     return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`;
   }
 
   /**
-   * Product Ask Price WhatsApp message
+   * Opens WhatsApp directly with the provided message
+   * @param {string} message - Message text
+   * @param {string} [phone] - Optional phone override
    */
-  function getProductPriceMsg(productName) {
-    return `Hi HI-TECH Mobile Hub, I want to know the price and availability of ${productName}.`;
+  function openWhatsApp(message, phone) {
+    const url = createUrl(message, phone);
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
-  /**
-   * Product Check Availability WhatsApp message
-   */
-  function getProductAvailabilityMsg(productName) {
-    return `Hi HI-TECH Mobile Hub, is ${productName} currently available?`;
+  // Pre-configured Contextual Message Builders
+  function getGeneralMessage() {
+    return (typeof SHOP_CONFIG !== "undefined" && SHOP_CONFIG.messages)
+      ? SHOP_CONFIG.messages.general
+      : "Hello HI-TECH Mobile Hub, I found your website and would like some information.";
   }
 
-  /**
-   * Service Enquiry WhatsApp message
-   */
-  function getServiceMsg(serviceTitle) {
-    return `Hi HI-TECH Mobile Hub, I want to enquire about ${serviceTitle}.`;
+  function getProductMessage(productName) {
+    return `Hello HI-TECH Mobile Hub, I am interested in ${productName || 'this mobile'}. Please share price and availability.`;
   }
 
-  /**
-   * Repair Assistance WhatsApp message
-   */
-  function getRepairMsg(details) {
+  function getProductAvailabilityMessage(productName) {
+    return `Hello HI-TECH Mobile Hub, is ${productName || 'this product'} currently available in your Hansi shop?`;
+  }
+
+  function getRepairMessage(details) {
     if (!details) {
-      return "Hi HI-TECH Mobile Hub, I need help with mobile repair.";
+      return "Hello HI-TECH Mobile Hub, I need help with mobile repair/service.";
     }
     const lines = [
-      "Hi HI-TECH Mobile Hub, I need repair assistance for my device:",
+      "Hello HI-TECH Mobile Hub, I need repair assistance for my phone:",
       `• Name: ${details.name || "Customer"}`,
       `• Phone: ${details.phone || "Not specified"}`,
       `• Brand: ${details.brand || "Not specified"}`,
       `• Model: ${details.model || "Not specified"}`,
-      `• Issue: ${details.problem || "General repair checkup"}`
+      `• Problem: ${details.problem || "Checkup needed"}`
     ];
     return lines.join("\n");
   }
 
-  /**
-   * Exchange Enquiry WhatsApp message
-   */
-  function getExchangeMsg() {
-    return "Hi HI-TECH Mobile Hub, I want to enquire about exchanging my phone.";
+  function getAccessoriesMessage(category) {
+    return `Hello HI-TECH Mobile Hub, I am looking for ${category || 'mobile accessories'}. Please share available options.`;
+  }
+
+  function getExchangeMessage() {
+    return "Hello HI-TECH Mobile Hub, I want to know about phone exchange/upgrade options.";
+  }
+
+  function getLocationMessage() {
+    return "Hello HI-TECH Mobile Hub, can you please share your exact shop location and directions in Hansi?";
   }
 
   return {
     createUrl,
-    getProductPriceMsg,
-    getProductAvailabilityMsg,
-    getServiceMsg,
-    getRepairMsg,
-    getExchangeMsg
+    openWhatsApp,
+    getGeneralMessage,
+    getProductMessage,
+    getProductAvailabilityMessage,
+    getRepairMessage,
+    getAccessoriesMessage,
+    getExchangeMessage,
+    getLocationMessage
   };
 })();
 
+// Global alias for compatibility
+const WhatsAppHelper = WhatsAppSystem;
+
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = WhatsAppHelper;
+  module.exports = WhatsAppSystem;
 }

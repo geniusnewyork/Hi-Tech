@@ -1,18 +1,20 @@
 /**
- * HI-TECH Mobile Hub — Catalogue Filters & Brand Switcher
+ * HI-TECH Mobile Hub — Catalogue Filters, Search & Sorter
  * 
- * Supports category tabs, brand pills, search filtering, and state preservation.
+ * Supports category tabs, brand buttons, live search, and sorting options.
  */
 
 const FiltersController = (function() {
   let currentCategory = "all";
   let currentBrand = "all";
+  let currentSort = "default";
   let searchQuery = "";
 
   function init() {
     bindCategoryTabs();
     bindBrandButtons();
     bindSearchInput();
+    bindSortDropdown();
     applyFilters();
   }
 
@@ -60,6 +62,16 @@ const FiltersController = (function() {
     }
   }
 
+  function bindSortDropdown() {
+    const sortSelect = document.getElementById("phoneSortSelect");
+    if (sortSelect) {
+      sortSelect.addEventListener("change", (e) => {
+        currentSort = e.target.value;
+        applyFilters();
+      });
+    }
+  }
+
   function applyFilters() {
     if (typeof PRODUCTS_DATA === "undefined" || !PRODUCTS_DATA.mobiles) return;
 
@@ -98,8 +110,19 @@ const FiltersController = (function() {
       });
     }
 
+    // 4. Sorting
+    if (currentSort === "name-asc") {
+      filtered.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (currentSort === "name-desc") {
+      filtered.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (currentSort === "brand-asc") {
+      filtered.sort((a, b) => a.brand.localeCompare(b.brand));
+    }
+
     // Render filtered list
-    ProductsRenderer.renderMobiles(filtered);
+    if (typeof ProductsRenderer !== "undefined") {
+      ProductsRenderer.renderMobiles(filtered);
+    }
   }
 
   return {

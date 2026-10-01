@@ -1,8 +1,8 @@
 /**
- * HI-TECH Mobile Hub — Master Application Entry Point
+ * HI-TECH Mobile Hub — Master Application Orchestrator
  * 
- * Orchestrates business configuration bindings, module initialization,
- * conditional Google Maps display, and resilient error recovery.
+ * Synchronizes centralized business configuration, initializes showroom modules,
+ * binds digital visiting card & QR modals, and ensures zero uncaught runtime errors.
  */
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. Populate dynamic content from SHOP_CONFIG
     applyConfigToDOM();
 
-    // 2. Initialize Navigation & Header
+    // 2. Initialize Navigation & Sticky Header
     if (typeof NavigationController !== "undefined") {
       NavigationController.init();
     }
@@ -29,12 +29,12 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
 
-    // 4. Initialize Filters & Search
+    // 4. Initialize Filters, Search & Sorter
     if (typeof FiltersController !== "undefined") {
       FiltersController.init();
     }
 
-    // 5. Initialize Gallery & Lightbox
+    // 5. Initialize Gallery & Lightbox Viewer
     if (typeof GalleryController !== "undefined") {
       GalleryController.init();
     }
@@ -44,17 +44,27 @@ document.addEventListener("DOMContentLoaded", function() {
       FormsController.init();
     }
 
-    // 7. Initialize Scroll Animations
+    // 7. Initialize Digital Visiting Card (vCard)
+    if (typeof VCardController !== "undefined") {
+      VCardController.init();
+    }
+
+    // 8. Initialize Vector QR System
+    if (typeof QrController !== "undefined") {
+      QrController.init();
+    }
+
+    // 9. Initialize Scroll Animations (prefers-reduced-motion respected)
     if (typeof AnimationsController !== "undefined") {
       AnimationsController.init();
     }
 
-    // 8. Invalidate & Update Structured Data
+    // 10. Invalidate & Update Structured Data (Schema.org)
     if (typeof SeoController !== "undefined") {
       SeoController.init();
     }
 
-    // 9. Load Analytics if configured
+    // 11. Load Analytics if configured
     initAnalytics();
 
     // Set copyright year dynamically
@@ -64,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
   } catch (err) {
-    console.error("HI-TECH Mobile Hub: initialization exception caught", err);
+    console.error("HI-TECH Mobile Hub: initialization exception handled safely", err);
   }
 });
 
@@ -77,20 +87,20 @@ function applyConfigToDOM() {
   // Phone numbers display
   const phoneDisplayElements = document.querySelectorAll(".cfg-phone-display");
   phoneDisplayElements.forEach(el => {
-    el.textContent = SHOP_CONFIG.phoneDisplay;
+    el.textContent = SHOP_CONFIG.phone;
   });
 
   // Phone tel: links
   const phoneTelLinks = document.querySelectorAll(".cfg-phone-link");
   phoneTelLinks.forEach(el => {
-    el.href = `tel:${SHOP_CONFIG.phone}`;
+    el.href = `tel:${SHOP_CONFIG.phoneRaw || SHOP_CONFIG.phone}`;
   });
 
   // WhatsApp click-to-chat links (general)
   const whatsappLinks = document.querySelectorAll(".cfg-whatsapp-link");
   whatsappLinks.forEach(el => {
-    const customMsg = el.getAttribute("data-msg") || SHOP_CONFIG.whatsappDefaultMsg;
-    el.href = WhatsAppHelper.createUrl(customMsg, SHOP_CONFIG.whatsapp);
+    const customMsg = el.getAttribute("data-msg") || (SHOP_CONFIG.messages ? SHOP_CONFIG.messages.general : "Hello HI-TECH Mobile Hub");
+    el.href = WhatsAppSystem.createUrl(customMsg, SHOP_CONFIG.whatsapp);
   });
 
   // Social Links
@@ -120,15 +130,15 @@ function applyConfigToDOM() {
     el.textContent = SHOP_CONFIG.locationShort;
   });
 
-  // Maps button check:
-  // Only display Google Maps button if SHOP_CONFIG.maps is not empty.
-  // Otherwise show "Contact us for directions."
+  // Google Maps button setup
   const mapsBtn = document.getElementById("googleMapsBtn");
   const directionsFallback = document.getElementById("directionsFallback");
 
-  if (SHOP_CONFIG.maps && SHOP_CONFIG.maps.trim().length > 0) {
+  const mapTargetUrl = SHOP_CONFIG.mapUrl || (SHOP_CONFIG.mapQuery ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SHOP_CONFIG.mapQuery)}` : "");
+
+  if (mapTargetUrl && mapTargetUrl.trim().length > 0) {
     if (mapsBtn) {
-      mapsBtn.href = SHOP_CONFIG.maps;
+      mapsBtn.href = mapTargetUrl;
       mapsBtn.style.display = "inline-flex";
     }
     if (directionsFallback) {

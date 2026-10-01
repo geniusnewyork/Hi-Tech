@@ -1,8 +1,9 @@
 /**
- * HI-TECH Mobile Hub — Offers & Shop Updates Data
+ * HI-TECH Mobile Hub — Offers & In-Store Updates Data
  * 
- * Truthful, real-world shop announcements and in-store promotions.
- * No fake price cuts or misleading discount figures.
+ * Factual in-store benefits and seasonal announcements.
+ * Supports status: 'active', 'upcoming', 'expired'.
+ * Expired offers are automatically filtered out.
  */
 
 const OFFERS_DATA = [
@@ -11,48 +12,65 @@ const OFFERS_DATA = [
     title: "Complimentary Screen Guard on Smartphone Purchase",
     category: "Special Offers",
     badge: "In-Store Perk",
-    date: "Current Season",
+    validity: "Active In Store",
+    status: "active",
     active: true,
-    description: "Purchase any smartphone at HI-TECH Mobile Hub and receive a premium 9H tempered glass screen protector with professional zero-bubble installation on us.",
+    description: "Purchase any new smartphone at HI-TECH Mobile Hub and get a free 9H tempered glass screen protector with professional zero-bubble installation.",
     image: "assets/images/products/acc-tempered.svg",
     ctaText: "Claim on WhatsApp",
-    whatsappMessage: "Hi HI-TECH Mobile Hub, I saw your free screen protector offer on smartphone purchase."
+    whatsappMessage: "Hello HI-TECH Mobile Hub, I would like to enquire about the free screen protector offer on smartphone purchase."
   },
   {
     id: "offer-02",
-    title: "Latest 5G Flagships Now Available In Hansi",
+    title: "New 5G Flagships Stock Arrival",
     category: "New Arrivals",
     badge: "Fresh Stock",
-    date: "Weekly Arrival",
+    validity: "Weekly Stock Update",
+    status: "active",
     active: true,
-    description: "Fresh sealed stock of latest Apple, Samsung Galaxy, and OnePlus series has arrived. Visit our store to experience live demo units before buying.",
+    description: "Fresh sealed units of latest Apple iPhone, Samsung Galaxy, and OnePlus devices arrived at our Hansi showroom. Hands-on physical demo available.",
     image: "assets/images/gallery/gallery-unboxing-desk.svg",
     ctaText: "Check Stock on WhatsApp",
-    whatsappMessage: "Hi HI-TECH Mobile Hub, what new 5G models are currently in stock?"
+    whatsappMessage: "Hello HI-TECH Mobile Hub, what new 5G models are currently in stock?"
   },
   {
     id: "offer-03",
-    title: "Audio & Charging Essentials Combo Enquiry",
+    title: "Essential Fast-Charging & Audio Combo Enquiry",
     category: "Accessories",
     badge: "Bundle Benefit",
-    date: "Ongoing",
+    validity: "Ongoing Offer",
+    status: "active",
     active: true,
-    description: "Get special bundle pricing when you pair your new device with a certified fast adapter and heavy-duty braided cable or protective case.",
+    description: "Special bundle options when pairing your smartphone with a high-wattage fast adapter, braided cable, or shockproof armor case.",
     image: "assets/images/products/acc-charger.svg",
-    ctaText: "Enquire on WhatsApp",
-    whatsappMessage: "Hi HI-TECH Mobile Hub, I want to enquire about accessory combo packages."
+    ctaText: "Enquire Combo",
+    whatsappMessage: "Hello HI-TECH Mobile Hub, I want to enquire about accessory combo packages."
   },
   {
     id: "offer-04",
-    title: "Quick-Diagnosis Mobile Checkup Service",
+    title: "Express Mobile Diagnostic Checkup",
     category: "Repair Updates",
-    badge: "Express Care",
-    date: "Daily Service",
+    badge: "Quick Care",
+    validity: "Available Daily",
+    status: "active",
     active: true,
-    description: "Experiencing battery drain, charging jack looseness, or speaker crackling? Bring your device for an honest diagnostic assessment without unnecessary replacement costs.",
+    description: "Facing battery drain, mic crackle, or loose charging pin? Bring your phone for an honest checkup without unnecessary parts replacement.",
     image: "assets/images/gallery/gallery-repair-station.svg",
-    ctaText: "Book Diagnosis",
-    whatsappMessage: "Hi HI-TECH Mobile Hub, I want to bring my phone for a quick repair checkup."
+    ctaText: "Book Checkup",
+    whatsappMessage: "Hello HI-TECH Mobile Hub, I want to bring my phone for a quick repair checkup."
+  },
+  {
+    id: "offer-archive-sample",
+    title: "Previous Model Clearance",
+    category: "Archive",
+    badge: "Concluded",
+    validity: "Expired",
+    status: "expired",
+    active: false,
+    description: "Older campaign archive entry for demonstration of status filtering.",
+    image: "assets/images/products/phone-apple.svg",
+    ctaText: "Expired",
+    whatsappMessage: ""
   }
 ];
 

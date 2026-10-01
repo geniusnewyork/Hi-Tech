@@ -1,5 +1,5 @@
 /**
- * HI-TECH Mobile Hub — UI Components (Buttons, Cards, Badges, Modals, Lightbox)
+ * HI-TECH Mobile Hub — UI Components (Buttons, Cards, Badges, Modals, Lightbox, QR)
  */
 
 /* ============================================================
@@ -33,7 +33,7 @@
 }
 
 .btn-lg {
-  padding: 1rem 2rem;
+  padding: 0.9rem 1.85rem;
   font-size: var(--text-base);
   border-radius: var(--radius-md);
 }
@@ -43,7 +43,7 @@
   width: 100%;
 }
 
-/* Primary Button (Gold) */
+/* Primary Button (Yellow / Gold) */
 .btn-primary {
   background: var(--color-primary);
   color: #000000;
@@ -70,7 +70,7 @@
 .btn-outline:focus-visible {
   border-color: var(--color-primary);
   color: var(--color-primary);
-  background: rgba(255, 212, 0, 0.05);
+  background: rgba(255, 212, 0, 0.06);
   transform: translateY(-2px);
 }
 
@@ -92,16 +92,46 @@
 
 /* Call Button */
 .btn-call {
-  background: var(--color-surface);
+  background: var(--color-surface-secondary);
   color: var(--color-text);
   border-color: var(--color-border);
 }
 
 .btn-call:hover,
 .btn-call:focus-visible {
-  border-color: #3B82F6;
-  color: #60A5FA;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
   transform: translateY(-2px);
+}
+
+/* Quick Action Pill */
+.quick-action-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.6rem 1.2rem;
+  background: var(--color-surface-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.quick-action-pill:hover,
+.quick-action-pill:focus-visible {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(255, 212, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.quick-action-pill svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* ============================================================
@@ -127,7 +157,7 @@
   position: absolute;
   bottom: 12px;
   left: 12px;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #FFFFFF;
@@ -160,7 +190,7 @@
 
 .product-image-wrap {
   position: relative;
-  background: radial-gradient(circle at center, #1F222C 0%, #101116 100%);
+  background: radial-gradient(circle at center, #1C1D24 0%, #0E0F14 100%);
   padding: var(--space-8) var(--space-6);
   display: flex;
   align-items: center;
@@ -276,7 +306,7 @@
 
 .accessory-image-wrap {
   position: relative;
-  background: radial-gradient(circle at center, #1A1D24 0%, #0E0F14 100%);
+  background: radial-gradient(circle at center, #191B22 0%, #0C0D12 100%);
   padding: var(--space-6);
   display: flex;
   align-items: center;
@@ -339,7 +369,7 @@
 }
 
 /* ============================================================
-   SERVICE CARDS (8 ITEMS)
+   SERVICE CARDS
    ============================================================ */
 .service-card {
   background: var(--color-surface-card);
@@ -433,6 +463,60 @@
 
 .service-cta-link:hover {
   gap: var(--space-3);
+}
+
+/* ============================================================
+   REPAIR PROCESS FLOW CARDS (PROBLEM → DIAGNOSIS → SERVICE → READY)
+   ============================================================ */
+.repair-flow-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+}
+
+@media (min-width: 600px) {
+  .repair-flow-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .repair-flow-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.repair-flow-step {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.repair-flow-badge {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+}
+
+.repair-flow-title {
+  font-size: var(--text-base);
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.repair-flow-desc {
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  line-height: 1.6;
 }
 
 /* ============================================================
@@ -543,7 +627,7 @@
 .form-textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  background: var(--color-surface-hover);
+  background: var(--color-surface-elevated);
   box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.15);
 }
 
@@ -606,7 +690,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.92);
+  background: rgba(0, 0, 0, 0.94);
   backdrop-filter: blur(8px);
 }
 
@@ -714,6 +798,80 @@
 
 .lightbox-prev-btn { left: 16px; }
 .lightbox-next-btn { right: 16px; }
+
+/* ============================================================
+   QR CODE MODAL
+   ============================================================ */
+.qr-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-modal);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.qr-modal.is-open {
+  display: flex;
+}
+
+.qr-modal-card {
+  position: relative;
+  z-index: 2;
+  max-width: 440px;
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.qr-tabs-bar {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.qr-tab-btn {
+  padding: 0.35rem 0.8rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.qr-tab-btn.active {
+  background: var(--color-primary);
+  color: #000000;
+  border-color: var(--color-primary);
+}
+
+.qr-code-box {
+  background: #FFFFFF;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.qr-vector-display {
+  display: block;
+}
 
 /* Empty state styling */
 .empty-state {

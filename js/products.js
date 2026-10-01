@@ -1,14 +1,11 @@
 /**
- * HI-TECH Mobile Hub — Products & Services UI Renderer
+ * HI-TECH Mobile Hub — Products, Accessories, Services & Offers UI Renderer
  * 
- * Dynamically mounts mobiles, accessories, services, and offers to the DOM.
- * Never invents prices or false discounts. Generates pre-filled WhatsApp links.
+ * Truthful showroom presentation. Never invents prices or fake discounts.
+ * Generates contextual WhatsApp enquiry links and handles missing image fallbacks.
  */
 
 const ProductsRenderer = (function() {
-  /**
-   * Sanitizes text strings to prevent injection
-   */
   function escapeHTML(str) {
     if (!str) return "";
     return String(str)
@@ -21,7 +18,6 @@ const ProductsRenderer = (function() {
 
   /**
    * Renders the mobile phones catalogue into #mobilesGrid
-   * @param {Array} items - List of mobile phone objects
    */
   function renderMobiles(items) {
     const container = document.getElementById("mobilesGrid");
@@ -30,10 +26,10 @@ const ProductsRenderer = (function() {
     if (!items || items.length === 0) {
       container.innerHTML = `
         <div class="empty-state">
-          <p class="empty-state-title">No models found in this filter</p>
-          <p class="empty-state-desc">We stock many unlisted models at our Hansi store. Contact us directly on WhatsApp to check availability.</p>
-          <a href="${WhatsAppHelper.createUrl('Hi HI-TECH Mobile Hub, I am looking for a specific mobile model.')}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
-            Ask on WhatsApp
+          <p class="empty-state-title">No matching phone models found</p>
+          <p class="empty-state-desc">We stock many unlisted models at our Hansi showroom. Message us on WhatsApp to check availability for any specific model.</p>
+          <a href="${WhatsAppSystem.createUrl(WhatsAppSystem.getProductMessage('a specific phone model'))}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
+            <span>💬 Ask Model on WhatsApp</span>
           </a>
         </div>
       `;
@@ -41,10 +37,10 @@ const ProductsRenderer = (function() {
     }
 
     const cardsHtml = items.map(phone => {
-      const askPriceUrl = WhatsAppHelper.createUrl(WhatsAppHelper.getProductPriceMsg(phone.name));
-      const checkAvailUrl = WhatsAppHelper.createUrl(WhatsAppHelper.getProductAvailabilityMsg(phone.name));
+      const askPriceUrl = WhatsAppSystem.createUrl(WhatsAppSystem.getProductMessage(phone.name));
+      const checkAvailUrl = WhatsAppSystem.createUrl(WhatsAppSystem.getProductAvailabilityMessage(phone.name));
 
-      const priceText = phone.priceVisible && phone.price ? `₹${phone.price.toLocaleString("en-IN")}` : "Ask Price";
+      const priceText = phone.priceVisible && phone.price ? `₹${phone.price.toLocaleString("en-IN")}` : "Ask for Price";
       const badgeHtml = phone.badge ? `<span class="product-badge">${escapeHTML(phone.badge)}</span>` : "";
       
       const specsHtml = phone.specs && phone.specs.length > 0
@@ -66,14 +62,14 @@ const ProductsRenderer = (function() {
             <p class="product-desc">${escapeHTML(phone.description)}</p>
             ${specsHtml}
             <div class="product-pricing">
-              <span class="price-label">Price:</span>
+              <span class="price-label">Pricing:</span>
               <span class="price-val ${phone.priceVisible ? 'price-revealed' : 'price-enquire'}">${escapeHTML(priceText)}</span>
-              <span class="stock-status">📍 ${escapeHTML(phone.availability || "In Store")}</span>
+              <span class="stock-status">📍 ${escapeHTML(phone.availability || "Check In Store")}</span>
             </div>
             <div class="product-actions">
               <a href="${askPriceUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-block" title="Enquire price for ${escapeHTML(phone.name)}">
                 <span class="btn-icon">💬</span>
-                <span>Ask Price</span>
+                <span>Ask for Price</span>
               </a>
               <a href="${checkAvailUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm btn-block" title="Check stock for ${escapeHTML(phone.name)}">
                 <span>Check Availability</span>
@@ -95,7 +91,7 @@ const ProductsRenderer = (function() {
     if (!container || typeof PRODUCTS_DATA === "undefined" || !PRODUCTS_DATA.accessories) return;
 
     const cardsHtml = PRODUCTS_DATA.accessories.map(acc => {
-      const askPriceUrl = WhatsAppHelper.createUrl(WhatsAppHelper.getProductPriceMsg(acc.name));
+      const askPriceUrl = WhatsAppSystem.createUrl(WhatsAppSystem.getAccessoriesMessage(acc.name));
       const badgeHtml = acc.badge ? `<span class="product-badge">${escapeHTML(acc.badge)}</span>` : "";
 
       return `
@@ -107,17 +103,17 @@ const ProductsRenderer = (function() {
           <div class="accessory-body">
             <div class="accessory-header">
               <span class="accessory-category">${escapeHTML(acc.category)}</span>
-              <span class="accessory-status">📍 In Shop</span>
+              <span class="accessory-status">📍 Ready In Store</span>
             </div>
             <h3 class="accessory-title">${escapeHTML(acc.name)}</h3>
             <p class="accessory-desc">${escapeHTML(acc.description)}</p>
             <div class="accessory-footer">
               <div class="accessory-price-block">
                 <span class="price-label">Price:</span>
-                <span class="price-val price-enquire">Ask Price</span>
+                <span class="price-val price-enquire">Ask for Price</span>
               </div>
               <a href="${askPriceUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
-                <span>Ask Price on WhatsApp</span>
+                <span>Ask Availability</span>
               </a>
             </div>
           </div>
@@ -136,7 +132,7 @@ const ProductsRenderer = (function() {
     if (!container || typeof SERVICES_DATA === "undefined") return;
 
     const cardsHtml = SERVICES_DATA.map(serv => {
-      const whatsappUrl = WhatsAppHelper.createUrl(serv.whatsappMessage || WhatsAppHelper.getServiceMsg(serv.title));
+      const whatsappUrl = WhatsAppSystem.createUrl(serv.whatsappMessage || WhatsAppSystem.getRepairMessage());
       
       const benefitsHtml = serv.benefits && serv.benefits.length > 0
         ? `<ul class="service-benefits">
@@ -175,34 +171,35 @@ const ProductsRenderer = (function() {
     const container = document.getElementById("offersGrid");
     if (!container || typeof OFFERS_DATA === "undefined") return;
 
-    const activeOffers = OFFERS_DATA.filter(o => o.active);
+    // Filter only active or upcoming offers
+    const validOffers = OFFERS_DATA.filter(o => o.status === "active" || o.active);
 
-    if (activeOffers.length === 0) {
+    if (validOffers.length === 0) {
       container.innerHTML = `
         <div class="empty-state">
-          <p class="empty-state-title">New offers will be updated here</p>
-          <p class="empty-state-desc">Visit our shop or enquire on WhatsApp for the day's special bundle offers and seasonal trade-in benefits.</p>
-          <a href="${WhatsAppHelper.createUrl('Hi HI-TECH Mobile Hub, are there any ongoing store offers today?')}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
-            Ask Today's Deals
+          <p class="empty-state-title">New offers will be announced here</p>
+          <p class="empty-state-desc">Visit our Hansi showroom or enquire on WhatsApp for today's in-store bundle perks and trade-in benefits.</p>
+          <a href="${WhatsAppSystem.createUrl('Hello HI-TECH Mobile Hub, are there any ongoing store offers today?')}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
+            <span>Ask Today's Perks</span>
           </a>
         </div>
       `;
       return;
     }
 
-    const cardsHtml = activeOffers.map(offer => {
-      const whatsappUrl = WhatsAppHelper.createUrl(offer.whatsappMessage || "Hi HI-TECH Mobile Hub, I want to know about your latest offers.");
+    const cardsHtml = validOffers.map(offer => {
+      const whatsappUrl = WhatsAppSystem.createUrl(offer.whatsappMessage || "Hello HI-TECH Mobile Hub, I would like to know about your current in-store offers.");
 
       return `
         <article class="offer-card" data-id="${escapeHTML(offer.id)}">
           <div class="offer-image-wrap">
-            <span class="offer-badge">${escapeHTML(offer.badge || "Shop Update")}</span>
+            <span class="offer-badge">${escapeHTML(offer.badge || "In-Store Perk")}</span>
             <img src="${escapeHTML(offer.image)}" alt="${escapeHTML(offer.title)}" class="offer-img" loading="lazy" onerror="this.onerror=null; this.src='assets/images/gallery/gallery-unboxing-desk.svg';">
           </div>
           <div class="offer-body">
             <div class="offer-meta">
               <span class="offer-category">${escapeHTML(offer.category)}</span>
-              <span class="offer-date">${escapeHTML(offer.date)}</span>
+              <span class="offer-date">${escapeHTML(offer.validity || "Active")}</span>
             </div>
             <h3 class="offer-title">${escapeHTML(offer.title)}</h3>
             <p class="offer-desc">${escapeHTML(offer.description)}</p>
