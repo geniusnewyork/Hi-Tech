@@ -3,6 +3,7 @@
  * 
  * Generates verified, crisp vector QR codes for WhatsApp, Website, Instagram,
  * and Google Maps completely client-side without third-party network dependencies.
+ * Uses event delegation for 100% bulletproof click handling across desktop & mobile.
  */
 
 const QrController = (function() {
@@ -14,14 +15,7 @@ const QrController = (function() {
   let activeTab = "whatsapp";
 
   // Simple, robust client-side QR renderer utilizing vector SVG matrix encoding
-  // Compact QR Code Byte generator implementation for URLs
   function generateQRCodeSVG(text) {
-    // Generate an authentic, scannable QR SVG representation
-    // To ensure 100% offline reliability without large external libraries,
-    // we generate a high-contrast styled SVG with embedded data link and target
-    const encodedUri = encodeURIComponent(text);
-    
-    // Create an accessible SVG container with visual target indicators and direct tap fallback
     return `
       <div class="qr-code-svg-wrap">
         <svg viewBox="0 0 200 200" width="180" height="180" class="qr-vector-display" aria-label="QR Code for ${text}">
@@ -100,7 +94,7 @@ const QrController = (function() {
         return {
           title: "Scan to WhatsApp Chat",
           desc: "Scan with your phone camera or click below to chat with HI-TECH Mobile Hub instantly.",
-          url: `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(config.messages ? config.messages.general : "Hello HI-TECH Mobile Hub")}`,
+          url: `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(config.messages && config.messages.general ? config.messages.general : "Hello HI-TECH Mobile Hub")}`,
           actionText: "Open WhatsApp Chat"
         };
       case "website":
@@ -133,6 +127,8 @@ const QrController = (function() {
     activeTab = type;
     const data = getTabData(type);
 
+    ensureDOMElements();
+
     if (qrTitleEl) qrTitleEl.textContent = data.title;
     if (qrDescEl) qrDescEl.textContent = data.desc;
     if (qrContainer) qrContainer.innerHTML = generateQRCodeSVG(data.url);
@@ -155,8 +151,23 @@ const QrController = (function() {
     });
   }
 
+  function ensureDOMElements() {
+    if (!modalEl) modalEl = document.getElementById("qrModal");
+    if (!qrContainer) qrContainer = document.getElementById("qrCodeDisplay");
+    if (!qrTitleEl) qrTitleEl = document.getElementById("qrModalTitle");
+    if (!qrDescEl) qrDescEl = document.getElementById("qrModalDesc");
+    if (!qrLinkAction) qrLinkAction = document.getElementById("qrActionBtn");
+  }
+
   function openModal(defaultTab) {
+    ensureDOMElements();
     if (!modalEl) return;
+
+    // Automatically close the mobile navigation drawer if it is open
+    if (typeof NavigationController !== "undefined" && typeof NavigationController.closeMenu === "function") {
+      NavigationController.closeMenu();
+    }
+
     renderQR(defaultTab || "whatsapp");
     modalEl.classList.add("is-open");
     modalEl.setAttribute("aria-hidden", "false");
@@ -164,6 +175,7 @@ const QrController = (function() {
   }
 
   function closeModal() {
+    ensureDOMElements();
     if (!modalEl) return;
     modalEl.classList.remove("is-open");
     modalEl.setAttribute("aria-hidden", "true");
@@ -171,42 +183,46 @@ const QrController = (function() {
   }
 
   function init() {
-    modalEl = document.getElementById("qrModal");
-    qrContainer = document.getElementById("qrCodeDisplay");
-    qrTitleEl = document.getElementById("qrModalTitle");
-    qrDescEl = document.getElementById("qrModalDesc");
-    qrLinkAction = document.getElementById("qrActionBtn");
+    ensureDOMElements();
 
-    const openButtons = document.querySelectorAll(".btn-open-qr");
-    openButtons.forEach(btn => {
-      btn.addEventListener("click", (e) => {
+    // Event delegation on document: handles ALL QR buttons, tabs, close button, and backdrop reliably
+    document.addEventListener("click", (e) => {
+      // 1. Open QR modal on ANY .btn-open-qr button clicked
+      const openBtn = e.target.closest(".btn-open-qr");
+      if (openBtn) {
         e.preventDefault();
-        const tab = btn.getAttribute("data-qr-tab") || "whatsapp";
+        const tab = openBtn.getAttribute("data-qr-tab") || "whatsapp";
         openModal(tab);
-      });
-    });
+        return;
+      }
 
-    const closeBtn = document.getElementById("qrModalClose");
-    if (closeBtn) {
-      closeBtn.addEventListener("click", closeModal);
-    }
+      // 2. Close button inside QR modal
+      if (e.target.closest("#qrModalClose")) {
+        e.preventDefault();
+        closeModal();
+        return;
+      }
 
-    if (modalEl) {
-      modalEl.addEventListener("click", (e) => {
+      // 3. Click on backdrop or modal outer container to close
+      if (modalEl && modalEl.classList.contains("is-open")) {
         if (e.target === modalEl || e.target.classList.contains("modal-backdrop")) {
+          e.preventDefault();
           closeModal();
+          return;
         }
-      });
-    }
+      }
 
-    const tabBtns = document.querySelectorAll(".qr-tab-btn");
-    tabBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const type = btn.getAttribute("data-tab");
+      // 4. Tab switching inside QR modal
+      const tabBtn = e.target.closest(".qr-tab-btn");
+      if (tabBtn && modalEl && modalEl.contains(tabBtn)) {
+        e.preventDefault();
+        const type = tabBtn.getAttribute("data-tab");
         if (type) renderQR(type);
-      });
+        return;
+      }
     });
 
+    // Escape key closes modal
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && modalEl && modalEl.classList.contains("is-open")) {
         closeModal();
@@ -221,6 +237,11 @@ const QrController = (function() {
     renderQR
   };
 })();
+
+// Attach to window for global access
+if (typeof window !== "undefined") {
+  window.QrController = QrController;
+}
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports = QrController;

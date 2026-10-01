@@ -52,12 +52,15 @@ const VCardController = (function() {
   }
 
   function init() {
-    const saveContactButtons = document.querySelectorAll(".btn-save-contact");
-    saveContactButtons.forEach(btn => {
-      btn.addEventListener("click", (e) => {
+    document.addEventListener("click", (e) => {
+      const saveBtn = e.target.closest(".btn-save-contact");
+      if (saveBtn) {
         e.preventDefault();
+        if (typeof NavigationController !== "undefined" && typeof NavigationController.closeMenu === "function") {
+          NavigationController.closeMenu();
+        }
         downloadVCard();
-      });
+      }
     });
   }
 
