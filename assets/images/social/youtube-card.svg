@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%" fill="none">
+  <defs>
+    <radialGradient id="ytGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF0000" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="500" height="500" rx="36" fill="#121214" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+  <circle cx="250" cy="180" r="110" fill="url(#ytGlow)" />
+
+  <!-- YouTube Play Button Box -->
+  <rect x="160" y="125" width="180" height="120" rx="36" fill="#FF0000" />
+  <polygon points="235,160 235,210 278,185" fill="#FFFFFF" />
+
+  <!-- Channel Name -->
+  <text x="250" y="315" font-family="'Inter', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle">HI-TECH Mobile</text>
+  <text x="250" y="348" font-family="'Inter', sans-serif" font-weight="600" font-size="16" fill="#A1A1AA" text-anchor="middle">@hitechmobile-i4e</text>
+  <text x="250" y="380" font-family="'Inter', sans-serif" font-weight="500" font-size="13" fill="#FFD400" text-anchor="middle">Mobile Reviews • Comparisons • Tech Guides</text>
+
+  <!-- Button Badge -->
+  <rect x="150" y="415" width="200" height="46" rx="23" fill="#FF0000" />
+  <text x="250" y="444" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#FFFFFF" text-anchor="middle">WATCH ON YOUTUBE</text>
+</svg>

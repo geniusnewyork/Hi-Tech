@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="gRepBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141E28" />
+      <stop offset="100%" stop-color="#0B1017" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#gRepBg)" />
+  
+  <!-- Anti-static workbench mat -->
+  <rect x="50" y="80" width="500" height="250" rx="14" fill="#003859" stroke="#00D4FF" stroke-width="2" />
+  
+  <!-- Grid on repair mat -->
+  <g stroke="rgba(0,212,255,0.2)" stroke-width="1">
+    <line x1="50" y1="130" x2="550" y2="130" />
+    <line x1="50" y1="180" x2="550" y2="180" />
+    <line x1="50" y1="230" x2="550" y2="230" />
+    <line x1="50" y1="280" x2="550" y2="280" />
+    <line x1="150" y1="80" x2="150" y2="330" />
+    <line x1="250" y1="80" x2="250" y2="330" />
+    <line x1="350" y1="80" x2="350" y2="330" />
+    <line x1="450" y1="80" x2="450" y2="330" />
+  </g>
+
+  <!-- Disassembled Phone Under Repair -->
+  <rect x="230" y="115" width="140" height="180" rx="18" fill="#111827" stroke="#FFD400" stroke-width="2" />
+  
+  <!-- Motherboard & Battery inside -->
+  <rect x="245" y="130" width="110" height="70" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1" />
+  <rect x="260" y="140" width="35" height="35" rx="4" fill="#042F2E" />
+  <circle cx="277" cy="157" r="4" fill="#FFD400" />
+  <!-- Battery pack -->
+  <rect x="245" y="210" width="110" height="65" rx="6" fill="#1F2937" stroke="#6B7280" stroke-width="1" />
+  <text x="300" y="246" font-family="'Inter', sans-serif" font-weight="700" font-size="9" fill="#9CA3AF" text-anchor="middle">Li-ion 5000mAh</text>
+
+  <!-- Precision Tools around mat -->
+  <!-- Tweezers -->
+  <path d="M100 130 L130 200 L126 202 L100 130 Z" fill="#94A3B8" stroke="#CBD5E1" stroke-width="1" />
+  <!-- Precision Screwdriver -->
+  <rect x="160" y="120" width="12" height="90" rx="4" fill="#FFD400" stroke="#CA8A04" stroke-width="1" />
+  <rect x="164" y="210" width="4" height="30" fill="#94A3B8" />
+  
+  <!-- Heat Gun / Multimeter Probe -->
+  <g transform="translate(420, 130)">
+    <rect x="0" y="0" width="70" height="110" rx="10" fill="#B91C1C" stroke="#F87171" stroke-width="1.5" />
+    <rect x="15" y="20" width="40" height="30" rx="4" fill="#000" />
+    <text x="35" y="42" font-family="'Inter', monospace" font-size="14" fill="#22C55E" text-anchor="middle">3.85V</text>
+  </g>
+
+  <!-- Top Title -->
+  <rect x="180" y="25" width="240" height="34" rx="17" fill="#0A0A0C" stroke="#00D4FF" stroke-width="1.5" />
+  <text x="300" y="47" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#FFFFFF" text-anchor="middle">EXPRESS REPAIR WORKBENCH</text>
+
+  <rect x="180" y="345" width="240" height="30" rx="15" fill="#0A0A0C" stroke="#FFD400" stroke-width="1" />
+  <text x="300" y="364" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#FFD400" text-anchor="middle">Certified Precision Mobile Repair</text>
+</svg>

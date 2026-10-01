@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="gShopBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+    <linearGradient id="gGoldLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFD400" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <!-- Background Interior -->
+  <rect width="600" height="400" fill="url(#gShopBg)" />
+  
+  <!-- Ceiling Lighting tracks -->
+  <rect x="0" y="0" width="600" height="30" fill="#121214" />
+  <rect x="100" y="15" width="400" height="6" fill="#FFD400" opacity="0.9" />
+  <polygon points="100,21 500,21 580,240 20,240" fill="url(#gGoldLight)" />
+
+  <!-- Shop Board Signage on back wall -->
+  <rect x="150" y="50" width="300" height="65" rx="10" fill="#0A0A0C" stroke="#FFD400" stroke-width="2.5" />
+  <text x="300" y="86" font-family="'Inter', sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" text-anchor="middle">HI-TECH <tspan fill="#FFD400">MOBILE HUB</tspan></text>
+  <text x="300" y="104" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#D4D4D8" letter-spacing="3" text-anchor="middle">HANSI • STOREFRONT</text>
+
+  <!-- Showcase glass counters -->
+  <rect x="60" y="220" width="480" height="150" rx="12" fill="#141416" stroke="#27272A" stroke-width="2" />
+  <!-- Glass Top Reflection -->
+  <polygon points="60,220 540,220 520,260 80,260" fill="#252B3B" opacity="0.4" stroke="#00D4FF" stroke-width="0.8" />
+
+  <!-- Phones lined on display stand -->
+  <g transform="translate(100, 240)">
+    <rect x="0" y="0" width="35" height="55" rx="6" fill="#18181B" stroke="#FFD400" stroke-width="1.5" />
+    <rect x="55" y="0" width="35" height="55" rx="6" fill="#18181B" stroke="#00D4FF" stroke-width="1.5" />
+    <rect x="110" y="0" width="35" height="55" rx="6" fill="#18181B" stroke="#FFD400" stroke-width="1.5" />
+    <rect x="165" y="0" width="35" height="55" rx="6" fill="#18181B" stroke="#00D4FF" stroke-width="1.5" />
+    <rect x="220" y="0" width="35" height="55" rx="6" fill="#18181B" stroke="#FFD400" stroke-width="1.5" />
+    <rect x="275" y="0" width="35" height="55" rx="6" fill="#18181B" stroke="#00D4FF" stroke-width="1.5" />
+    <rect x="330" y="0" width="35" height="55" rx="6" fill="#18181B" stroke="#FFD400" stroke-width="1.5" />
+  </g>
+
+  <!-- Bottom Badge -->
+  <rect x="210" y="340" width="180" height="30" rx="15" fill="#0A0A0C" stroke="#FFD400" stroke-width="1" />
+  <text x="300" y="359" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#FFD400" text-anchor="middle">Official Storefront Showcase</text>
+</svg>

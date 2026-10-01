@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%" fill="none">
+  <defs>
+    <radialGradient id="glassGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="glassShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#00D4FF" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#FFD400" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+  <circle cx="160" cy="160" r="140" fill="url(#glassGlow)" />
+  <!-- Smartphone base under glass -->
+  <rect x="95" y="65" width="115" height="190" rx="20" fill="#18181B" stroke="#333333" stroke-width="1.5" />
+  
+  <!-- Tempered Glass Layer Peeling/Applying -->
+  <g transform="translate(15, -10)">
+    <rect x="95" y="65" width="115" height="190" rx="20" fill="url(#glassShine)" stroke="#00D4FF" stroke-width="2.5" />
+    <!-- 9H Hardness Badge -->
+    <rect x="130" y="135" width="45" height="24" rx="6" fill="#0F172A" stroke="#FFD400" stroke-width="1.5" />
+    <text x="152" y="152" font-family="'Inter', sans-serif" font-weight="900" font-size="12" fill="#FFD400" text-anchor="middle">9H</text>
+    
+    <!-- Reflection ray -->
+    <line x1="110" y1="80" x2="195" y2="235" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.4" />
+  </g>
+
+  <text x="160" y="278" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#FFFFFF" text-anchor="middle">9H Edge-to-Edge Tempered Glass</text>
+  <text x="160" y="295" font-family="'Inter', sans-serif" font-weight="500" font-size="10" fill="#FFD400" text-anchor="middle">Anti-Scratch • HD Clarity • Matte &amp; Privacy</text>
+</svg>

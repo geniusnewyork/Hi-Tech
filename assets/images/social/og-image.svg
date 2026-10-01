@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="ogBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08080A" />
+      <stop offset="60%" stop-color="#121216" />
+      <stop offset="100%" stop-color="#050505" />
+    </linearGradient>
+    <linearGradient id="ogGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF066" />
+      <stop offset="50%" stop-color="#FFD400" />
+      <stop offset="100%" stop-color="#E5A800" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="630" fill="url(#ogBg)" />
+  <rect x="20" y="20" width="1160" height="590" rx="28" stroke="url(#ogGold)" stroke-width="3" stroke-opacity="0.6" />
+
+  <!-- Grid overlay -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="0" y1="150" x2="1200" y2="150" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="450" x2="1200" y2="450" />
+  </g>
+
+  <!-- Left Content -->
+  <g transform="translate(90, 110)">
+    <!-- Location Badge -->
+    <rect x="0" y="0" width="220" height="38" rx="19" fill="#18181B" stroke="#FFD400" stroke-width="1.2" />
+    <circle cx="24" cy="19" r="6" fill="#FFD400" />
+    <text x="40" y="24" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#FFFFFF" letter-spacing="1">HANSI, HARYANA</text>
+
+    <!-- Headline -->
+    <text x="0" y="100" font-family="'Inter', sans-serif" font-weight="900" font-size="64" fill="#FFFFFF" letter-spacing="1">HI<tspan fill="url(#ogGold)">-</tspan>TECH</text>
+    <text x="0" y="160" font-family="'Inter', sans-serif" font-weight="900" font-size="42" fill="url(#ogGold)" letter-spacing="8">MOBILE HUB</text>
+    <text x="0" y="205" font-family="'Inter', sans-serif" font-weight="600" font-size="22" fill="#E5E7EB">Your Mobile, Our Priority</text>
+
+    <!-- Services bullet strip -->
+    <text x="0" y="260" font-family="'Inter', sans-serif" font-weight="500" font-size="17" fill="#9CA3AF">
+      Smartphones • Accessories • Express Repair • Phone Exchange
+    </text>
+
+    <!-- Quick Callout -->
+    <rect x="0" y="300" width="380" height="70" rx="16" fill="#141416" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+    <text x="25" y="332" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#FFFFFF">Direct Call &amp; WhatsApp</text>
+    <text x="25" y="356" font-family="'Inter', sans-serif" font-weight="800" font-size="20" fill="#FFD400">+91 86077 77717</text>
+  </g>
+
+  <!-- Right Graphic Illustration (Phone Frame & Badges) -->
+  <g transform="translate(780, 70)">
+    <rect x="50" y="40" width="260" height="460" rx="36" fill="#18181B" stroke="url(#ogGold)" stroke-width="4" />
+    <rect x="62" y="55" width="236" height="430" rx="28" fill="#090A0D" />
+    <!-- Dynamic island -->
+    <rect x="135" y="68" width="90" height="20" rx="10" fill="#222222" />
+    
+    <!-- Phone Content -->
+    <circle cx="180" cy="200" r="45" fill="#FFD400" fill-opacity="0.15" />
+    <text x="180" y="210" font-family="'Inter', sans-serif" font-weight="900" font-size="32" fill="#FFD400" text-anchor="middle">5G</text>
+    <text x="180" y="270" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#FFFFFF" text-anchor="middle">HI-TECH</text>
+    <text x="180" y="295" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#A1A1AA" text-anchor="middle">Hansi, HR</text>
+
+    <rect x="90" y="350" width="180" height="40" rx="20" fill="#25D366" />
+    <text x="180" y="375" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#FFFFFF" text-anchor="middle">WhatsApp Us 💬</text>
+  </g>
+</svg>

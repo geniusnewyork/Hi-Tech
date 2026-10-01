@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Page Not Found | HI-TECH Mobile Hub Hansi</title>
+  <meta name="description" content="Looks like this page is unavailable. Return to HI-TECH Mobile Hub Hansi or chat on WhatsApp.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    .not-found-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-6);
+      background: radial-gradient(circle at center, rgba(255, 212, 0, 0.08) 0%, var(--color-bg) 70%);
+    }
+    .not-found-card {
+      max-width: 500px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-gold-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-10) var(--space-8);
+      box-shadow: var(--shadow-lg);
+    }
+    .not-found-code {
+      font-size: clamp(3.5rem, 12vw, 5.5rem);
+      font-weight: 900;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: var(--space-3);
+      letter-spacing: -0.05em;
+    }
+    .not-found-title {
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+    }
+    .not-found-desc {
+      font-size: var(--text-base);
+      color: var(--color-muted);
+      margin-bottom: var(--space-8);
+      line-height: 1.6;
+    }
+    .not-found-actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    @media (min-width: 480px) {
+      .not-found-actions {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="not-found-wrapper">
+    <div class="not-found-card">
+      <div class="not-found-code">404</div>
+      <h1 class="not-found-title">Looks like this page is unavailable.</h1>
+      <p class="not-found-desc">
+        The link you followed may be broken or the page may have been moved. Return to our homepage or message us directly on WhatsApp.
+      </p>
+      <div class="not-found-actions">
+        <a href="index.html" class="btn btn-primary btn-lg">
+          <span>Go Home</span>
+        </a>
+        <a href="https://wa.me/918607777717" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+          <span>💬 WhatsApp Us</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

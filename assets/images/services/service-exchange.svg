@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" fill="none">
+  <rect width="100" height="100" rx="20" fill="#141416" stroke="rgba(16,185,129,0.3)" stroke-width="1.5" />
+  <!-- Dual exchange circular arrows with phone silhouettes -->
+  <path d="M30 42 A 22 22 0 0 1 68 32 L66 26 M68 32 L74 34" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M70 58 A 22 22 0 0 1 32 68 L34 74 M32 68 L26 66" stroke="#FFD400" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <rect x="42" y="38" width="16" height="24" rx="4" fill="#1E293B" stroke="#FFFFFF" stroke-width="1.5" />
+</svg>

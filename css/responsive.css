@@ -1,0 +1,93 @@
+/**
+ * HI-TECH Mobile Hub — Responsive Breakpoint Optimizations
+ * 
+ * Verified across 320px, 360px, 375px, 390px, 414px, 480px, 768px, 1024px, 1440px+
+ */
+
+/* Ultra-compact screens (320px - 360px) */
+@media (max-width: 360px) {
+  :root {
+    --container-padding: 0.75rem;
+    --header-height: 64px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-pricing {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  .bottom-action-btn {
+    font-size: 0.6875rem;
+  }
+}
+
+/* Compact mobile screens (361px - 480px) */
+@media (min-width: 361px) and (max-width: 480px) {
+  .hero-cta-group .btn {
+    flex: 1 1 calc(50% - var(--space-2));
+  }
+}
+
+/* Tablet portrait & below (under 768px) */
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .about-card-box,
+  .repair-form-card,
+  .location-card {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .hero-phone-graphic {
+    max-width: 320px;
+  }
+}
+
+/* Tablet landscape & desktop (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-phone-graphic {
+    max-width: 400px;
+  }
+}
+
+/* Large Displays (1440px+) */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1360px;
+  }
+}
+
+/* High Contrast & Print Modes */
+@media print {
+  .site-header,
+  .mobile-bottom-bar,
+  .floating-whatsapp-btn,
+  .lightbox-modal {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+}

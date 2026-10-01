@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%" fill="none">
+  <defs>
+    <radialGradient id="instaGrad" cx="30%" cy="100%" r="130%">
+      <stop offset="0%" stop-color="#FFDC80" />
+      <stop offset="25%" stop-color="#F77737" />
+      <stop offset="50%" stop-color="#F56040" />
+      <stop offset="75%" stop-color="#FD1D1D" />
+      <stop offset="100%" stop-color="#833AB4" />
+    </radialGradient>
+  </defs>
+  <rect width="500" height="500" rx="36" fill="#121214" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+  
+  <!-- Outer Glow circle -->
+  <circle cx="250" cy="180" r="100" fill="url(#instaGrad)" opacity="0.15" />
+
+  <!-- Instagram Camera Glyphs -->
+  <rect x="175" y="105" width="150" height="150" rx="42" stroke="url(#instaGrad)" stroke-width="14" fill="none" />
+  <circle cx="250" cy="180" r="38" stroke="url(#instaGrad)" stroke-width="14" fill="none" />
+  <circle cx="288" cy="142" r="10" fill="url(#instaGrad)" />
+
+  <!-- Username & Details -->
+  <text x="250" y="315" font-family="'Inter', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle">@hitechmobile77</text>
+  <text x="250" y="348" font-family="'Inter', sans-serif" font-weight="600" font-size="16" fill="#A1A1AA" text-anchor="middle">HI-TECH Mobile Hub • Hansi</text>
+  
+  <text x="250" y="380" font-family="'Inter', sans-serif" font-weight="500" font-size="13" fill="#FFD400" text-anchor="middle">Latest Phone Unboxings, Offers &amp; Reels</text>
+
+  <!-- Button Badge -->
+  <rect x="150" y="415" width="200" height="46" rx="23" fill="url(#instaGrad)" />
+  <text x="250" y="444" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#FFFFFF" text-anchor="middle">FOLLOW ON INSTAGRAM</text>
+</svg>

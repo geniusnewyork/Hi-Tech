@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%" fill="none">
+  <defs>
+    <radialGradient id="cableGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD400" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <circle cx="160" cy="160" r="140" fill="url(#cableGlow)" />
+  <!-- Braided Cable Coil in Gold / Black -->
+  <path d="M70 160 C70 90 250 90 250 160 C250 220 90 220 90 160 C90 120 230 120 230 160" stroke="#FFD400" stroke-width="8" stroke-linecap="round" stroke-dasharray="14 4" />
+  <path d="M70 160 C70 90 250 90 250 160 C250 220 90 220 90 160 C90 120 230 120 230 160" stroke="#222222" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Heavy Duty Metal Connectors -->
+  <g transform="translate(60, 140)">
+    <rect x="0" y="0" width="38" height="20" rx="5" fill="#18181B" stroke="#FFD400" stroke-width="2" />
+    <rect x="-14" y="4" width="16" height="12" rx="3" fill="#A1A1AA" />
+    <!-- Type C tip -->
+    <rect x="-18" y="7" width="6" height="6" rx="2" fill="#71717A" />
+  </g>
+
+  <g transform="translate(225, 140)">
+    <rect x="0" y="0" width="38" height="20" rx="5" fill="#18181B" stroke="#FFD400" stroke-width="2" />
+    <rect x="36" y="4" width="16" height="12" rx="3" fill="#A1A1AA" />
+    <rect x="50" y="7" width="6" height="6" rx="2" fill="#71717A" />
+  </g>
+
+  <text x="160" y="255" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#FFFFFF" text-anchor="middle">Braided Fast Data Cables</text>
+  <text x="160" y="274" font-family="'Inter', sans-serif" font-weight="500" font-size="10" fill="#FFD400" text-anchor="middle">Type-C to Type-C, Lightning &amp; 100W</text>
+</svg>

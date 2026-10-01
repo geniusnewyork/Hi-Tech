@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="vivoBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B2232" />
+      <stop offset="100%" stop-color="#0E131E" />
+    </linearGradient>
+    <linearGradient id="vivoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD400" />
+      <stop offset="100%" stop-color="#00D4FF" />
+    </linearGradient>
+  </defs>
+  <rect x="74" y="40" width="172" height="320" rx="30" fill="url(#vivoBody)" stroke="url(#vivoGold)" stroke-width="2.5" />
+  
+  <!-- Aura Light Portrait Deco (Vivo signature) -->
+  <rect x="90" y="55" width="75" height="110" rx="18" fill="#141923" stroke="rgba(255,255,255,0.15)" stroke-width="1.2" />
+  <circle cx="127" cy="82" r="14" fill="#0C1017" stroke="#334155" stroke-width="2" />
+  <circle cx="127" cy="82" r="5" fill="#00D4FF" />
+  
+  <circle cx="127" cy="116" r="12" fill="#0C1017" stroke="#334155" stroke-width="2" />
+  <circle cx="127" cy="116" r="4" fill="#00D4FF" />
+
+  <!-- Aura Ring Light below cameras -->
+  <circle cx="127" cy="148" r="10" stroke="#FFD400" stroke-width="3" fill="none" opacity="0.9" />
+
+  <text x="160" y="240" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#00D4FF" letter-spacing="3" text-anchor="middle">vivo</text>
+  <text x="160" y="260" font-family="'Inter', sans-serif" font-weight="600" font-size="10.5" fill="#A3A3A3" text-anchor="middle">Aura Portrait Series</text>
+
+  <rect x="95" y="295" width="130" height="26" rx="13" fill="#111827" stroke="rgba(255,212,0,0.3)" />
+  <text x="160" y="312" font-family="'Inter', sans-serif" font-weight="700" font-size="10.5" fill="#FFD400" text-anchor="middle">Pro Portrait Camera</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="gBoxBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#gBoxBg)" />
+
+  <!-- Customer Unboxing Desk table -->
+  <rect x="50" y="80" width="500" height="240" rx="20" fill="#141416" stroke="rgba(255,212,0,0.3)" stroke-width="2" />
+  
+  <!-- Sealed Smartphone Retail Boxes on desk -->
+  <!-- Box 1 -->
+  <g transform="translate(100, 130)">
+    <rect x="0" y="0" width="95" height="130" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1.5" />
+    <rect x="15" y="20" width="65" height="90" rx="4" fill="#000000" />
+    <text x="47" y="12" font-family="'Inter', sans-serif" font-weight="900" font-size="8" fill="#111827" text-anchor="middle">IPHONE</text>
+  </g>
+
+  <!-- Box 2 -->
+  <g transform="translate(230, 120)">
+    <rect x="0" y="0" width="105" height="145" rx="8" fill="#0F172A" stroke="#FFD400" stroke-width="2" />
+    <text x="52" y="55" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#FFD400" text-anchor="middle">SAMSUNG</text>
+    <text x="52" y="80" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#FFFFFF" text-anchor="middle">Galaxy 5G</text>
+    <rect x="25" y="110" width="55" height="18" rx="4" fill="#10B981" />
+    <text x="52" y="123" font-family="'Inter', sans-serif" font-weight="700" font-size="8" fill="#FFFFFF" text-anchor="middle">SEAL PACK</text>
+  </g>
+
+  <!-- Box 3 -->
+  <g transform="translate(370, 130)">
+    <rect x="0" y="0" width="95" height="130" rx="8" fill="#DC2626" stroke="#EF4444" stroke-width="1.5" />
+    <text x="47" y="60" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#FFFFFF" text-anchor="middle">ONEPLUS</text>
+    <text x="47" y="80" font-family="'Inter', sans-serif" font-weight="700" font-size="9" fill="#FEE2E2" text-anchor="middle">Never Settle</text>
+  </g>
+
+  <rect x="180" y="25" width="240" height="34" rx="17" fill="#0A0A0C" stroke="#FFD400" stroke-width="1.5" />
+  <text x="300" y="47" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#FFFFFF" text-anchor="middle">100% SEALED PACK DEVICES</text>
+
+  <rect x="180" y="345" width="240" height="30" rx="15" fill="#0A0A0C" stroke="#10B981" stroke-width="1" />
+  <text x="300" y="364" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#10B981" text-anchor="middle">Customer Unboxing &amp; Bill Verification</text>
+</svg>

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="posterBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050505" />
+      <stop offset="50%" stop-color="#121214" />
+      <stop offset="100%" stop-color="#050505" />
+    </linearGradient>
+    <linearGradient id="posterGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF066" />
+      <stop offset="50%" stop-color="#FFD400" />
+      <stop offset="100%" stop-color="#E5A800" />
+    </linearGradient>
+  </defs>
+
+  <!-- Poster Border & Dark Base -->
+  <rect width="600" height="800" fill="url(#posterBg)" />
+  <rect x="18" y="18" width="564" height="764" rx="24" stroke="url(#posterGold)" stroke-width="3" />
+  <rect x="26" y="26" width="548" height="748" rx="18" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" />
+
+  <!-- Top Badge -->
+  <rect x="180" y="45" width="240" height="34" rx="17" fill="#18181B" stroke="#FFD400" stroke-width="1.2" />
+  <text x="300" y="67" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#FFD400" letter-spacing="2" text-anchor="middle">OFFICIAL BUSINESS POSTER</text>
+
+  <!-- Big Brand Heading -->
+  <text x="300" y="140" font-family="'Inter', sans-serif" font-weight="900" font-size="46" fill="#FFFFFF" letter-spacing="1" text-anchor="middle">
+    HI<tspan fill="url(#posterGold)">-</tspan>TECH
+  </text>
+  <text x="300" y="175" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="url(#posterGold)" letter-spacing="8" text-anchor="middle">
+    MOBILE HUB
+  </text>
+  <text x="300" y="205" font-family="'Inter', sans-serif" font-weight="600" font-size="14" fill="#FFFFFF" letter-spacing="2" text-anchor="middle">
+    YOUR MOBILE, OUR PRIORITY
+  </text>
+
+  <!-- Golden Divider -->
+  <line x1="120" y1="225" x2="480" y2="225" stroke="url(#posterGold)" stroke-width="2" />
+
+  <!-- 4 Core Pillars Grid -->
+  <g transform="translate(60, 250)">
+    <!-- 01 Mobiles -->
+    <rect x="0" y="0" width="225" height="110" rx="16" fill="#141416" stroke="rgba(255,212,0,0.4)" stroke-width="1.5" />
+    <circle cx="35" cy="40" r="18" fill="#FFD400" fill-opacity="0.15" />
+    <text x="35" y="46" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#FFD400" text-anchor="middle">📱</text>
+    <text x="70" y="38" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#FFFFFF">NEW MOBILES</text>
+    <text x="70" y="60" font-family="'Inter', sans-serif" font-weight="500" font-size="11" fill="#A1A1AA">All Brands Available</text>
+    <text x="70" y="80" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#FFD400">Best Hansi Deals</text>
+
+    <!-- 02 Accessories -->
+    <rect x="255" y="0" width="225" height="110" rx="16" fill="#141416" stroke="rgba(0,212,255,0.4)" stroke-width="1.5" />
+    <circle cx="290" cy="40" r="18" fill="#00D4FF" fill-opacity="0.15" />
+    <text x="290" y="46" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#00D4FF" text-anchor="middle">🎧</text>
+    <text x="325" y="38" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#FFFFFF">ACCESSORIES</text>
+    <text x="325" y="60" font-family="'Inter', sans-serif" font-weight="500" font-size="11" fill="#A1A1AA">Covers, TWS, Glass</text>
+    <text x="325" y="80" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#00D4FF">100% Genuine</text>
+
+    <!-- 03 Repairing -->
+    <rect x="0" y="130" width="225" height="110" rx="16" fill="#141416" stroke="rgba(255,212,0,0.4)" stroke-width="1.5" />
+    <circle cx="35" cy="170" r="18" fill="#FFD400" fill-opacity="0.15" />
+    <text x="35" y="176" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#FFD400" text-anchor="middle">🔧</text>
+    <text x="70" y="168" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#FFFFFF">REPAIRING</text>
+    <text x="70" y="190" font-family="'Inter', sans-serif" font-weight="500" font-size="11" fill="#A1A1AA">Screen, Battery, IC</text>
+    <text x="70" y="210" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#FFD400">Express Assistance</text>
+
+    <!-- 04 Exchange -->
+    <rect x="255" y="130" width="225" height="110" rx="16" fill="#141416" stroke="rgba(16,185,129,0.4)" stroke-width="1.5" />
+    <circle cx="290" cy="170" r="18" fill="#10B981" fill-opacity="0.15" />
+    <text x="290" y="176" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#10B981" text-anchor="middle">🔄</text>
+    <text x="325" y="168" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#FFFFFF">EXCHANGE</text>
+    <text x="325" y="190" font-family="'Inter', sans-serif" font-weight="500" font-size="11" fill="#A1A1AA">Old Phone Upgrade</text>
+    <text x="325" y="210" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#10B981">Instant Evaluation</text>
+  </g>
+
+  <!-- Contact & Callout Box -->
+  <g transform="translate(60, 520)">
+    <rect x="0" y="0" width="480" height="135" rx="20" fill="#1A180E" stroke="url(#posterGold)" stroke-width="2" />
+    
+    <text x="240" y="38" font-family="'Inter', sans-serif" font-weight="900" font-size="20" fill="#FFFFFF" text-anchor="middle">CALL OR WHATSAPP DIRECTLY</text>
+    <text x="240" y="74" font-family="'Inter', sans-serif" font-weight="900" font-size="30" fill="url(#posterGold)" letter-spacing="1" text-anchor="middle">+91 86077 77717</text>
+
+    <text x="240" y="110" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#E5E5E5" text-anchor="middle">📍 HANSI, HARYANA, INDIA</text>
+  </g>
+
+  <!-- Social Handles Footer -->
+  <g transform="translate(60, 680)">
+    <rect x="0" y="0" width="480" height="60" rx="14" fill="#111113" stroke="rgba(255,255,255,0.12)" />
+    <text x="80" y="35" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#E1306C">Instagram: @hitechmobile77</text>
+    <text x="290" y="35" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#FF0000">YouTube: @hitechmobile-i4e</text>
+  </g>
+</svg>

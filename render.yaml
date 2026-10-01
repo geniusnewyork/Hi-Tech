@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: hitech-mobile-hub
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: true
