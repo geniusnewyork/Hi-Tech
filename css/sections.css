@@ -101,30 +101,37 @@
    Actions: CALL • WHATSAPP • VISIT SHOP • INSTAGRAM • FACEBOOK • YOUTUBE • SAVE CONTACT • QR
    ============================================================ */
 .quick-actions-bar {
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--space-4) 0;
+  background: rgba(14, 14, 16, 0.88);
+  border: 1px solid rgba(255, 212, 0, 0.22);
+  border-radius: 18px;
+  padding: 0.85rem 1rem;
+  margin-bottom: var(--space-6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 212, 0, 0.05);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: relative;
+  z-index: 5;
+  width: 100%;
 }
 
 .quick-actions-scroll {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  align-items: stretch;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .quick-actions-scroll {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: var(--space-1);
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
   }
-  .quick-actions-scroll::-webkit-scrollbar {
-    display: none;
+}
+
+@media (max-width: 680px) {
+  .quick-actions-scroll {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
   }
 }
 
